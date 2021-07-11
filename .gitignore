@@ -2,3 +2,5 @@
 .vs
 obj
 obj/*
+bin
+bin/*
