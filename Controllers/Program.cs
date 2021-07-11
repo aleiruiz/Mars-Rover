@@ -23,21 +23,25 @@ namespace Challenge1
                 if(!int.TryParse(boundaries[1].ToString(), out int yAxis))
                     throw new Exception(String.Format("Expected bounderies to be integers, received {0}", boundaries[1]));
 
+                var exploration = new Exploration();
 
-                var plateau = Exploration.BeginExploration(xAxis, yAxis);
+                exploration.BeginExploration(xAxis, yAxis);
 
                 Console.WriteLine("Plateau has been rendered correctly!");
                 while (true)
                 {
                     Console.WriteLine("Lets deploy a Rover!");
+
                     Console.WriteLine("Write initial position, type exit to stop the exploration");
+
                     var initialization = Console.ReadLine();
+                    
                     if(initialization == "exit")
                     {
                         break;
                     }
+                    
                     var initialPosition = initialization.ToCharArray();
-
 
                     if (initialPosition.Length != 3)
                         throw new Exception("Expected 3 parameters to deploy a rover, received " + initialPosition.Length);
@@ -50,12 +54,18 @@ namespace Challenge1
 
                     var facingPosition = initialPosition[2].ToString();
 
-                    var rover = Exploration.DeployRover(plateau, xPosition, yPosition, facingPosition);
+                    exploration.DeployRover(xPosition, yPosition, facingPosition);
+
                     Console.WriteLine("Rover Deployed! Type the next instructions");
+
                     var instructions = Console.ReadLine();
 
+                    exploration.ExecuteInstructions(instructions);
+
                     Console.WriteLine("Rover has finished his mission!");
-                    Console.WriteLine(Exploration.ExecuteInstructions(instructions, rover));
+                    
+                    Console.WriteLine(exploration.ReturnFinalPosition());
+
                     Console.ReadLine();
                 }
 

@@ -6,49 +6,51 @@ namespace Challenge1
 {
     public class Exploration
     {
-        public static Plateau BeginExploration(int xAxis, int yAxis)
+        public Plateau plateau;
+        public Rover rover;
+
+        public void BeginExploration(int xAxis, int yAxis)
         {
             if (xAxis < 0 || yAxis < 0)
                 throw new Exception("Invalid plateu boundaries");
-            return new Plateau(xAxis, yAxis);
+            this.plateau = new Plateau(xAxis, yAxis);
         }
 
-        public static Rover DeployRover(Plateau plateau, int xPosition, int yPosition, string facingPosition)
+        public void DeployRover(int xPosition, int yPosition, string facingPosition)
         {
-            if ((xPosition < 0 || xPosition > plateau.xAxis) || (yPosition < 0 || yPosition > plateau.yAxis))
+            if ((xPosition < 0 || xPosition > this.plateau.xAxis) || (yPosition < 0 || yPosition > this.plateau.yAxis))
                 throw new Exception("Cannot deploy Rover outside of plateu boundaries");
             
             var cardinalDirection = FilterEnum.GetCardinalDirectionFromString(facingPosition);
 
-            return new Rover(plateau, xPosition, yPosition, cardinalDirection);
+            this.rover = new Rover(this.plateau, xPosition, yPosition, cardinalDirection);
         }
 
-        public static string ExecuteInstructions(string instructions, Rover rover)
+        public void ExecuteInstructions(string instructions)
         {
 
             foreach(char instructionChar in instructions)
             {
-                string instruction = instructionChar.ToString();
+                string instruction = instructionChar.ToString().ToUpper();
                 switch (instruction)
                 {
                     case "M":
-                        rover.Move();
+                        this.rover.Move();
                         break;
                     case "L":
-                        rover.TurnFacingPosition("L");
-                        break;
                     case "R":
-                        rover.TurnFacingPosition("R");
+                        this.rover.TurnFacingPosition(instruction);
                         break;
                     default:
                         throw new Exception("Cannot perform unknown Instruction " + instruction);
 
                 }
             }
+        }
 
-            return rover.ReturnCurrentPosition();
-
-
+        public string ReturnFinalPosition()
+        {
+            return this.rover.ReturnCurrentPosition();
         }
     }
 }
