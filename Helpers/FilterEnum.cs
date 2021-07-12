@@ -4,6 +4,11 @@ namespace Challenge1.Helpers
 {
     public class FilterEnum
     {
+        /// <summary>
+        /// Returns Enum with the Cardinal Direction Enum filtered by a string
+        /// </summary>
+        /// <param name="cardinalDirection">String to filter the Enum</param>
+        /// <returns>Enum Object</returns>
         public static CardinalDirection GetCardinalDirectionFromString(string cardinalDirection)
         {
 

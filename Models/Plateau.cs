@@ -1,6 +1,10 @@
 ﻿
 namespace Challenge1.Models
 {
+    /// <summary>
+    /// Object in charge of rendering a X and Y boundaries inside a cardinal map.
+    /// It can not render boundaries below the 0 position.
+    /// </summary>
     public class Plateau
     {
         /// <summary>

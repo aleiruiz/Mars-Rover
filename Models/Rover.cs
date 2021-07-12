@@ -24,9 +24,9 @@ namespace Challenge1.Models
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="plateau"></param>
-        /// <param name="xPosition"></param>
-        /// <param name="yPosition"></param>
+        /// <param name="plateau">The target plateau</param>
+        /// <param name="xPosition">The x position inside the plateau's cardinal map</param>
+        /// <param name="yPosition">The y position inside the plateau's cardinal map</param>
         public Rover(Plateau plateau, int xPosition, int yPosition, CardinalDirection cardinalDirection)
         {
             this.plateau = plateau;
@@ -38,7 +38,7 @@ namespace Challenge1.Models
         /// <summary>
         /// Return Current Position
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Formated string with x y and facin positions</returns>
         public string ReturnCurrentPosition()
         {
             return String.Format("{0}{1}{2}", this.xPosition, this.yPosition, cardinalDirection.ToString().ToCharArray()[0]);
@@ -98,7 +98,7 @@ namespace Challenge1.Models
         /// </summary>
         /// <param name="axis">Target Axis</param>
         /// <param name="action">Action to be Performed</param>
-        /// <returns></returns>
+        /// <returns>Boolean value that determines if a move action can be done.</returns>
         public bool ValidateNextPosition(string axis, Actions action)
         {
             if (axis == "Y")
