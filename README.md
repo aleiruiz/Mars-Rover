@@ -1,16 +1,16 @@
 # Mars-Rover
 This is a Code Test to display my skills and knowledge about code architecture and practices.
 
-# Objectives
+### Objectives
 Display knowledge on building clean code architectures, display logic skills and sense of order.
 
-# Dependencies
+### Dependencies
 I did not used anything besides .Net Core, I wanted to display my skills in the purest form possible
 
-# SOLID Principles
+### SOLID Principles
 This project was made with SOLID principles in mind.
 
-# Clean Code Architecture
+### Clean Code Architecture
 The schema made by Uncle Bob displayed here https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html was used as a guide to build this application
 
 # Getting Started
