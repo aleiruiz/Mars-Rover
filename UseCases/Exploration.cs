@@ -1,15 +1,15 @@
-﻿using Challenge1.Entities;
+﻿using Challenge1.Models;
 using Challenge1.Helpers;
 using System;
 
-namespace Challenge1
+namespace Challenge1.UseCases
 {
     public class Exploration
     {
         public Plateau plateau;
         public Rover rover;
 
-        public void BeginExploration(int xAxis, int yAxis)
+        public void RenderPlateau(int xAxis, int yAxis)
         {
             if (xAxis < 0 || yAxis < 0)
                 throw new Exception("Invalid plateu boundaries");

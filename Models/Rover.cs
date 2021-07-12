@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Challenge1.Entities
+namespace Challenge1.Models
 {
     public class Rover
     {
